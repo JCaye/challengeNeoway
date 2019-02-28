@@ -21,3 +21,5 @@ Run `make post CHALLENGE_FOLDER=folder_path` to persist all values present in .j
 * `201` upon successful persistence of objects
 * `400` if no file was present
 * `415` if the file extension is not .jsonl
+
+There is also the option to directly send a POST request to http://localhost:CHALLENGE_PORT/node with the files to upload.
