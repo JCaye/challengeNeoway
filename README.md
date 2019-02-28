@@ -18,6 +18,6 @@ Run `make get CHALLENGE_PK=number` to lookup the score for the item identified b
 * `404` if score was not found
 
 Run `make post CHALLENGE_FOLDER=folder_path` to persist all values present in .jsonl files within the specified file path. If an entry's identifier is already in the database, it is skipped (and this is logged at warning level). Returns the following HTTP codes:
-* 201 upon successful persistence of objects
-* 400 if no file was present
-* 415 if the file extension is not .jsonl
+* `201` upon successful persistence of objects
+* `400` if no file was present
+* `415` if the file extension is not .jsonl

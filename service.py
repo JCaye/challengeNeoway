@@ -28,7 +28,7 @@ class ChallengeService():
     def get_score(self, pk):
         session = self.database.get_session()
         score = session.query(Score).filter(Score.pk == pk).first()
-        return json.dumps({'pk': score.pk, 'score': score.score} if score is not None else None)
+        return json.dumps({'pk': score.pk, 'score': score.score}) if score is not None else None
 
     def close_session(self):
         self.database.close_session()

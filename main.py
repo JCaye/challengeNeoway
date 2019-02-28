@@ -7,12 +7,10 @@ import logging
 
 app = Flask(__name__)
 
-@app.route("/node/<pk>")
+@app.route("/node/<pk>", methods = ["GET"])
 def read_node(pk):
     node = ChallengeService().get_score(pk)
-    if node is None:
-        abort(404)
-    return node
+    return node if node is not None else abort(404)
 
 @app.route("/node", methods = ["POST"])
 def save_nodes():
@@ -44,16 +42,13 @@ def remove_session(ex=None):
 
 def validate_file(request_files):
     if "file" not in request_files:
-        #flash("No file encountered")
         abort(400)
 
     file = request_files["file"]
     if file.filename == "":
-        #flash("No file selected")
         abort(400)
 
     if not is_valid_file_type(file.filename):
-        #flash ("Unsupported file type")
         abort (415)
 
     return file
