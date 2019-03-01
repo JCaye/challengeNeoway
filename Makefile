@@ -15,4 +15,4 @@ get:
 	curl http://localhost:$(CHALLENGE_PORT)/node/$(CHALLENGE_PK)
 
 post:
-	for file in $(CHALLENGE_FILEFOLDER)/*.jsonl; do curl -X POST -F "file=@$$file" http://localhost:$(CHALLENGE_PORT)/node; done
+	for file in $(CHALLENGE_FOLDER)/*.jsonl; do curl -X POST -F "file=@$$file" http://localhost:$(CHALLENGE_PORT)/node; done
